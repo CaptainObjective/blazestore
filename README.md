@@ -57,6 +57,6 @@ type Pokemon = {
   isEvolution: boolean;
 };
 
-const allFireTypePokemon = pokemon.read({ where: { types: { 'array-contain': 'fire' } } });
-const mew = pokemon.read({ where: { name: { '==': 'mew' } } });
+const allFireTypePokemons = pokemon.read({ where: { types: { contains: 'fire' } } });
+const mew = pokemon.read({ where: { name: { is: 'mew' } } });
 ```

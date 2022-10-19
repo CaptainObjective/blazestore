@@ -1,10 +1,12 @@
 import { QueryConstraint } from 'firebase/firestore';
+
+import { FirebaseDocument } from '../typings/FirebaseDocument';
 import { QueryParameters } from '../typings/QueryParameters';
 import { FilterService } from './Filter';
 import { LimitService } from './Limit';
 import { OrderService } from './Order';
 
-class QueryParametersService<Document> {
+class QueryParametersService<Document extends FirebaseDocument> {
   private filterService: FilterService<Document> = new FilterService<Document>();
   private orderService: OrderService<Document> = new OrderService<Document>();
   private limitService: LimitService = new LimitService();

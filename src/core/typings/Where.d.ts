@@ -1,10 +1,16 @@
 import type { ConditionalKeys, Primitive, RequireExactlyOne } from 'type-fest';
+import { FirebaseDocument } from './FirebaseDocument';
 
-type BooleanQueryOperators = '==' | '!=';
-type PrimitivesQueryOperatorsAcceptingPrimitive = '<' | '<=' | '>=' | '>' | BooleanQueryOperators;
-type PrimitivesQueryOperatorsAcceptingArray = 'in' | 'not-in';
-type ArrayMembershipQueryOperatorsAcceptingPrimitive = 'array-contains';
-type ArrayMembershipQueryOperatorsAcceptingArray = 'array-contains-any';
+type BooleanQueryOperators = 'is' | 'isNot';
+type PrimitivesQueryOperatorsAcceptingPrimitive =
+  | 'lessThan'
+  | 'lessOrEqualTo'
+  | 'greaterOrEqualTo'
+  | 'greaterThan'
+  | BooleanQueryOperators;
+type PrimitivesQueryOperatorsAcceptingArray = 'in' | 'notIn';
+type ArrayMembershipQueryOperatorsAcceptingPrimitive = 'contains';
+type ArrayMembershipQueryOperatorsAcceptingArray = 'containsAny';
 
 type PrimitivesQueryOperators = PrimitivesQueryOperatorsAcceptingPrimitive | PrimitivesQueryOperatorsAcceptingArray;
 
@@ -26,7 +32,7 @@ type ArrayFilterField<Type extends Primitive> = RequireExactlyOne<
   Record<ArrayMembershipQueryOperatorsAcceptingPrimitive, Type> &
     Record<ArrayMembershipQueryOperatorsAcceptingArray, Type[]>
 >;
-export type Where<Document> = Partial<
+export type Where<Document extends FirebaseDocument> = Partial<
   Record<GetKeys<Document, boolean>, BooleanFilterField> &
     Record<GetKeys<Document, string>, PrimitiveFilterField<string>> &
     Record<GetKeys<Document, number>, PrimitiveFilterField<number>> &

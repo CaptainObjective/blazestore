@@ -21,22 +21,22 @@ describe('Read method', () => {
 
   describe('returns filtered records', () => {
     it('when filtering by text', async () => {
-      const [result] = await collection.read({ where: { name: { '==': 'Charmander' } } });
+      const [result] = await collection.read({ where: { name: { is: 'Charmander' } } });
       expect(result).toMatchObject(charmander);
     });
 
     it('when filtering by number', async () => {
-      const [result] = await collection.read({ where: { pokedexId: { '>': 24 } } });
+      const [result] = await collection.read({ where: { pokedexId: { greaterThan: 24 } } });
       expect(result).toMatchObject(pikachu);
     });
 
     it('when filtering by array content', async () => {
-      const [result] = await collection.read({ where: { type: { 'array-contains': 'Fire' } } });
+      const [result] = await collection.read({ where: { type: { contains: 'Fire' } } });
       expect(result).toMatchObject(charmander);
     });
 
     it('when filtering by array contents', async () => {
-      const [result] = await collection.read({ where: { type: { 'array-contains-any': ['Fire'] } } });
+      const [result] = await collection.read({ where: { type: { containsAny: ['Fire'] } } });
       expect(result).toMatchObject(charmander);
     });
   });
