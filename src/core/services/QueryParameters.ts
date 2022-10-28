@@ -6,7 +6,7 @@ import { FilterService } from './Filter';
 import { LimitService } from './Limit';
 import { OrderService } from './Order';
 
-class QueryParametersService<Document extends FirebaseDocument> {
+class QueryParametersService<Document extends FirebaseDocument<Document>> {
   private filterService: FilterService<Document> = new FilterService<Document>();
   private orderService: OrderService<Document> = new OrderService<Document>();
   private limitService: LimitService = new LimitService();

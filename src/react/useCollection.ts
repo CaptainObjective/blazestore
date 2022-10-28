@@ -4,11 +4,11 @@ import { Collection } from '../core/Collection';
 import { FirebaseDocument, WithId } from '../core/typings/FirebaseDocument';
 import { QueryParameters } from '../core/typings/QueryParameters';
 
-export const useCollection = <T extends FirebaseDocument>(
-  collection: Collection<T>,
-  parameters: QueryParameters<T> = {}
+export const useCollection = <Document extends FirebaseDocument<Document>>(
+  collection: Collection<Document>,
+  parameters: QueryParameters<Document> = {}
 ) => {
-  const [documents, setDocuments] = useState<WithId<T>[]>([]);
+  const [documents, setDocuments] = useState<WithId<Document>[]>([]);
 
   useEffect(() => {
     const unsubscribe = collection.subscribe((documents) => {

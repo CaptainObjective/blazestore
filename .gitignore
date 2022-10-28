@@ -4,12 +4,13 @@ logs
 *-debug.log*
 
 node_modules
-dist
+lib
 coverage
 *.local
 
 # Editor directories and files
 .idea
+.vscode
 .DS_Store
 *.suo
 *.ntvs*

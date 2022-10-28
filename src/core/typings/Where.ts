@@ -32,7 +32,7 @@ type ArrayFilterField<Type extends Primitive> = RequireExactlyOne<
   Record<ArrayMembershipQueryOperatorsAcceptingPrimitive, Type> &
     Record<ArrayMembershipQueryOperatorsAcceptingArray, Type[]>
 >;
-export type Where<Document extends FirebaseDocument> = Partial<
+export type Where<Document extends FirebaseDocument<Document>> = Partial<
   Record<GetKeys<Document, boolean>, BooleanFilterField> &
     Record<GetKeys<Document, string>, PrimitiveFilterField<string>> &
     Record<GetKeys<Document, number>, PrimitiveFilterField<number>> &

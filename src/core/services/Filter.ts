@@ -18,7 +18,7 @@ const queryOperatorMap: QueryOperatorMap = new Map([
   ['containsAny', 'array-contains-any'],
 ]);
 
-class FilterService<Document extends FirebaseDocument> {
+class FilterService<Document extends FirebaseDocument<Document>> {
   public convertFilterToConstraint(filters: Where<Document> = {}): QueryConstraint[] {
     const queryConstraints: QueryConstraint[] = [];
 

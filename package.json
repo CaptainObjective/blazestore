@@ -2,10 +2,33 @@
   "name": "blazestore",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/types/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
   "scripts": {
-    "test": "vitest --coverage",
-    "db": "firebase emulators:start"
+    "build": "npm-run-all clean build:esm build:cjs",
+    "compile:esm": "tsc -p ./tsconfig.esm.json",
+    "rename:esm": "move-cli lib/esm/index.js lib/esm/index.mjs",
+    "build:esm": "npm-run-all compile:esm rename:esm",
+    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "prepack": "npm run build",
+    "clean": "rimraf ./lib",
+    "db": "firebase emulators:start",
+    "test": "vitest --coverage"
   },
   "devDependencies": {
     "@testing-library/react": "^13.4.0",
@@ -13,6 +36,9 @@
     "@vitest/coverage-c8": "^0.23.4",
     "axios": "^0.27.2",
     "happy-dom": "^7.4.0",
+    "move-cli": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "type-fest": "^3.0.0",
     "typescript": "^4.8.4",
     "vite": "^3.1.0",
@@ -24,6 +50,6 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "firebase": "^9.9.4"
+    "firebase": "^9.x.x"
   }
 }

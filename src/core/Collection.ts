@@ -13,7 +13,7 @@ import { FirebaseService } from './services';
 import { FirebaseDocument, Id, WithId } from './typings/FirebaseDocument';
 import { QueryParameters } from './typings/QueryParameters';
 
-class Collection<Document extends FirebaseDocument> {
+class Collection<Document extends FirebaseDocument<Document>> {
   public reference: CollectionReference<Document>;
   private firebaseService: FirebaseService<Document>;
 
@@ -43,6 +43,7 @@ class Collection<Document extends FirebaseDocument> {
   }
 
   subscribe(callback: (document: WithId<Document>[]) => void, parameters: QueryParameters<Document> = {}) {
+    callback([]);
     return onSnapshot(this.firebaseService.getQuery(parameters), (snapshots) => {
       const documents = this.firebaseService.mapQuerySnapshotsToDocumentsWithId(snapshots);
       callback(documents);

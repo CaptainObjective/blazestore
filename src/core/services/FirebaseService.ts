@@ -3,7 +3,7 @@ import { FirebaseDocument, Id, WithId } from '../typings/FirebaseDocument';
 import { QueryParameters } from '../typings/QueryParameters';
 import { QueryParametersService } from './QueryParameters';
 
-class FirebaseService<Document extends FirebaseDocument> {
+class FirebaseService<Document extends FirebaseDocument<Document>> {
   public reference: CollectionReference<Document>;
   private queryParametersService: QueryParametersService<Document>;
 
@@ -23,7 +23,7 @@ class FirebaseService<Document extends FirebaseDocument> {
 
   mapQuerySnapshotsToDocumentsWithId(snapshots: QuerySnapshot<Document>) {
     const documents: WithId<Document>[] = [];
-    snapshots.forEach((document) => documents.push({ id: document.id, ...document.data() }));
+    snapshots.forEach((document) => documents.push({ ...document.data(), id: document.id }));
     return documents;
   }
 }

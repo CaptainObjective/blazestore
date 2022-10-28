@@ -10,7 +10,7 @@ Typed Firestore is a tiny wrapper around `firebase/firestore` package offering s
 
 ## How
 
-To use typed firestore first you need to create firestore instance and initialize firebase app with firestore in your code. You can follow steps in [firebase documentation](link) to do this.
+To use typed firestore first you need to create firestore instance and initialize firebase app with firestore in your code. You can follow steps in [firebase documentation](https://firebase.google.com/docs/firestore/quickstart) to do this.
 Then you just need to supply database, collection name and type to `Collection` constructor, the type is optional but highly recommended as it will be used for all operations with the collection.
 
 ```typescript
