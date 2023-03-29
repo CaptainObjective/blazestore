@@ -27,7 +27,7 @@
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
     "prepack": "npm run build",
     "clean": "rimraf ./lib",
-    "db": "firebase emulators:start",
+    "db": "firebase emulators:start --debug",
     "test": "vitest --coverage"
   },
   "devDependencies": {
@@ -41,9 +41,8 @@
     "rimraf": "^3.0.2",
     "type-fest": "^3.0.0",
     "typescript": "^4.8.4",
-    "vite": "^3.1.0",
-    "vite-tsconfig-paths": "^3.5.1",
-    "vitest": "^0.23.4"
+    "vite": "^4.2.1",
+    "vitest": "^0.29.8"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

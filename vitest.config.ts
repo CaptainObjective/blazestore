@@ -1,8 +1,7 @@
 import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  plugins: [],
   test: {
     // Disabling multi-threading as all tests are using the same database instance
     maxThreads: 1,

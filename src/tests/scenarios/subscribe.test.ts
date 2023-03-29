@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-import { Collection } from '@core';
+import { Collection } from '../../core';
 import { addDocument, db } from '../utils';
 import { bulbasaur, charmander, Pokemon } from '../mocks/pokemons';
 
@@ -19,7 +19,8 @@ describe('Subscribe method', () => {
     await addDocument(collection.reference, charmander);
     unsubscribe();
 
-    expect(callback).toHaveBeenCalledTimes(2);
+    expect(callback).toHaveBeenCalledTimes(3);
+    expect(callback).toHaveBeenCalledWith([]);
     expect(callback).toHaveBeenCalledWith(expect.arrayContaining([expect.objectContaining(bulbasaur)]));
     expect(callback).toHaveBeenCalledWith(
       expect.arrayContaining([expect.objectContaining(bulbasaur), expect.objectContaining(charmander)])

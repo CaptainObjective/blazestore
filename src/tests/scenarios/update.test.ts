@@ -1,6 +1,6 @@
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-import { Collection } from '@core';
+import { Collection } from '../../core';
 import { addDocument, db, readDocuments } from '../utils';
 import { Pokemon, bulbasaur } from '../mocks/pokemons';
 

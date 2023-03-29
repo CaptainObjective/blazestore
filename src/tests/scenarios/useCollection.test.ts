@@ -2,14 +2,14 @@
  * @vitest-environment happy-dom
  */
 import { beforeAll, describe, expect, it } from 'vitest';
-import { Collection } from '@core';
-import { useCollection } from '@react';
 import { renderHook } from '@testing-library/react';
 
+import { Collection } from '../../core';
+import { useCollection } from '../../react';
 import { bulbasaur, pikachu, Pokemon } from '../mocks/pokemons';
 import { db, addDocument } from '../utils';
 
-describe('Create method', () => {
+describe('useCollection hook', () => {
   let collection: Collection<Pokemon>;
   beforeAll(() => {
     collection = new Collection<Pokemon>('pokemons', db());

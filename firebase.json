@@ -6,6 +6,7 @@
     "ui": {
       "enabled": true,
       "port": 8081
-    }
+    },
+    "singleProjectMode": true
   }
 }
