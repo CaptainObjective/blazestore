@@ -8,10 +8,9 @@ export default defineConfig({
     minThreads: 1,
     setupFiles: './src/tests/setup.ts',
     coverage: {
-      reporter: 'html-spa',
-      all: true,
-      src: ['./src'],
-      exclude: ['**/tests/**', '**/*.d.ts'],
+      provider: 'istanbul',
+      reporter: ['text', 'html'],
+      exclude: ['**/tests/**', 'src/**/index.ts'],
     },
   },
 });

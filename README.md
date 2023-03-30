@@ -1,5 +1,7 @@
 # Blazestore
 
+![image](https://raw.githubusercontent.com/dwyl/repo-badges/4720fcd2ccfadea4715475628987cf7c95542373/svg/coverage-100.svg)
+
 ## Why
 
 Firestore is cool database packed with a lot of features. Sometimes the number of features can be overwhelming and it feels like you have to get PhD in Firestore's docs to perform a simple CRUD operation. The goal of this library is to provide easy-to-use and type-safe API to interact with firestore instance, whilst still leaving the ability to use original API for more advanced use cases.
