@@ -1,8 +1,12 @@
 {
   "name": "blazestore",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./lib/cjs/index.js",
   "types": "./lib/cjs/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CaptainObjective/blazestore"
+  },
   "files": [
     "lib/**/*"
   ],
