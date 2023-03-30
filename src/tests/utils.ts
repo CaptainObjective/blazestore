@@ -15,4 +15,5 @@ export const readDocuments = async (reference: CollectionReference) => {
   return result;
 };
 
-export const addDocument = (reference: CollectionReference, document: unknown) => addDoc(reference, document);
+export const addDocument = <Document extends unknown>(reference: CollectionReference<Document>, document: Document) =>
+  addDoc(reference, document);

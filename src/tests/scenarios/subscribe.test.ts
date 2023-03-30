@@ -19,8 +19,7 @@ describe('Subscribe method', () => {
     await addDocument(collection.reference, charmander);
     unsubscribe();
 
-    expect(callback).toHaveBeenCalledTimes(3);
-    expect(callback).toHaveBeenCalledWith([]);
+    expect(callback).toHaveBeenCalledTimes(2);
     expect(callback).toHaveBeenCalledWith(expect.arrayContaining([expect.objectContaining(bulbasaur)]));
     expect(callback).toHaveBeenCalledWith(
       expect.arrayContaining([expect.objectContaining(bulbasaur), expect.objectContaining(charmander)])

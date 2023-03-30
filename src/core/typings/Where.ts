@@ -26,7 +26,7 @@ type PrimitiveFilterField<Type extends Primitive> = RequireExactlyOne<
   Record<PrimitivesQueryOperatorsAcceptingPrimitive, Type> & Record<PrimitivesQueryOperatorsAcceptingArray, Type[]>
 >;
 
-type BooleanFilterField = Record<BooleanQueryOperators, boolean>;
+type BooleanFilterField = RequireExactlyOne<Record<BooleanQueryOperators, boolean>>;
 
 type ArrayFilterField<Type extends Primitive> = RequireExactlyOne<
   Record<ArrayMembershipQueryOperatorsAcceptingPrimitive, Type> &

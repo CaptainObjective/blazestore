@@ -16,7 +16,7 @@ export const useCollection = <Document extends FirebaseDocument<Document>>(
     }, parameters);
 
     return () => unsubscribe();
-  }, []);
+  }, [JSON.stringify(parameters)]);
 
   return documents;
 };
