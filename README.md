@@ -1,4 +1,4 @@
-# Typed Firestore
+# Blazestore
 
 ## Why
 
@@ -6,16 +6,16 @@ Firestore is cool database packed with a lot of features. Sometimes the number o
 
 ## What
 
-Typed Firestore is a tiny wrapper around `firebase/firestore` package offering simple interface to do basic operations against firestore instance. Collections and documents created with this package are not special in any way and can be interacted throughout regular `firebase/firestore` API. To get firebase collection reference just use `collection.reference`. All limitations imposed by firestore (e.g.: you cannot filter by two different fields at the same time without composed index) are still applicable.
+Blazestore is a tiny wrapper around `firebase/firestore` package offering simple interface to do basic operations against firestore instance. Collections and documents created with this package are not special in any way and can be interacted throughout regular `firebase/firestore` API. To get firebase collection reference just use `collection.reference`. All limitations imposed by firestore (e.g.: you cannot filter by two different fields at the same time without composed index) are still applicable.
 
 ## How
 
-To use typed firestore first you need to create firestore instance and initialize firebase app with firestore in your code. You can follow steps in [firebase documentation](https://firebase.google.com/docs/firestore/quickstart) to do this.
+To use Blazestore first you need to create firestore instance and initialize firebase app with firestore in your code. You can follow steps in [firebase documentation](https://firebase.google.com/docs/firestore/quickstart) to do this.
 Then you just need to supply database, collection name and type to `Collection` constructor, the type is optional but highly recommended as it will be used for all operations against that collection.
 
 ```typescript
 import { getFirestore } from 'firebase/firestore';
-import { Collection } from 'typed-firestore';
+import { Collection } from 'blazestore';
 
 const db = getFirestore();
 
@@ -98,7 +98,7 @@ If you specify more than one field inside `where` object they will be merged usi
 It might happen that your needs exceed capabilities of this library. Should that happen, you can use official firestore API as usual. For your convenience collection has `reference` field that lets you access underlying collection reference.
 ```typescript
 import { query, orderBy, startAt, getDocs, getFirestore } from "firebase/firestore"; 
-import { Collection } from 'typed-firestore';
+import { Collection } from 'blazestore';
 
 const db = getFirestore();
 
