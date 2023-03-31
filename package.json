@@ -54,5 +54,6 @@
   },
   "dependencies": {
     "firebase": "^9.x.x"
-  }
+  },
+  "license": "MIT"
 }
